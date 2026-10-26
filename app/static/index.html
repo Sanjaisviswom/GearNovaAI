@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoSpare AI — Intelligent Fault Diagnosis & Parts Suite</title>
+  <meta name="description" content="AI-powered automotive fault diagnosis, spare parts matching, and repair tutorials.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Ambient background glow effects -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>AutoSpare <span>AI</span></h1>
+          <p class="tagline">WhatsApp & Intelligent Diagnosis Suite</p>
+        </div>
+      </div>
+
+      <!-- Live Service Status Indicators -->
+      <div class="system-pills" id="systemPills">
+        <div class="pill pill-green" id="dbPill" title="Neon PostgreSQL Cloud Database">
+          <span class="dot"></span> Neon DB
+        </div>
+        <div class="pill pill-blue" id="sbertPill" title="Sentence-BERT (all-MiniLM-L6-v2) Semantic Search">
+          <span class="dot"></span> SBERT AI
+        </div>
+        <div class="pill pill-purple" id="aiPill" title="Google Gemini 3.5 Flash Model">
+          <span class="dot"></span> Gemini AI
+        </div>
+        <div class="pill pill-red" id="ytPill" title="YouTube Data API v3">
+          <span class="dot"></span> YouTube API
+        </div>
+        <div class="pill pill-whatsapp" id="waPill" title="WhatsApp Cloud API Webhook">
+          <span class="dot"></span> WhatsApp Ready
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="nav-tabs">
+        <button class="nav-btn active" data-tab="tab-chat" id="btnTabChat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          AI Copilot
+        </button>
+        <button class="nav-btn" data-tab="tab-catalog" id="btnTabCatalog">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          Parts Catalogue
+        </button>
+        <button class="nav-btn" data-tab="tab-webhook" id="btnTabWebhook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          Webhook Hub
+        </button>
+        <a href="/docs" target="_blank" class="nav-btn docs-btn" title="Open Swagger API documentation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Swagger Docs ↗
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-content">
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- TAB 1: AI COPILOT & DIAGNOSIS SIMULATOR                   -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="tab-pane active" id="tab-chat">
+      <div class="chat-layout">
+        
+        <!-- Left: Interactive WhatsApp & AI Chat Console -->
+        <div class="chat-console card">
+          <div class="console-header">
+            <div class="console-user-info">
+              <div class="avatar">
+                <span class="bot-badge">AI</span>
+                🤖
+              </div>
+              <div>
+                <h3>AutoSpare AI Assistant</h3>
+                <span class="status-online"><span class="pulse-dot"></span> Online • Gemini 3.5 Flash</span>
+              </div>
+            </div>
+            <div class="header-controls">
+              <label class="lang-select-label" for="langSelect">Language:</label>
+              <select id="langSelect" class="select-input">
+                <option value="english">English 🌐</option>
+                <option value="hinglish">Hinglish 🇮🇳</option>
+                <option value="tamil">Tamil / Tanglish 🌴</option>
+                <option value="malayalam">Malayalam 🌴</option>
+                <option value="hindi">Hindi 🇮🇳</option>
+                <option value="telugu">Telugu 🇮🇳</option>
+              </select>
+              <button class="btn-ghost" id="btnClearChat" title="Reset conversation">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Test Prompt Chips -->
+          <div class="prompt-chips">
+            <span class="chips-label">Quick Test:</span>
+            <button class="chip" data-prompt="My Honda Activa pickup is very low and engine vibrates heavily at 30km/h">🛵 Activa Pickup Issue</button>
+            <button class="chip" data-prompt="Maruti Swift AC is blowing warm air and making a rattling sound when switched on">🚗 Swift AC Warm Air</button>
+            <button class="chip" data-prompt="Pulsar 150 clutch lever is very hard and gears are getting stuck while shifting">🏍️ Pulsar Hard Clutch</button>
+            <button class="chip" data-prompt="Car front wheels making grinding noise when braking and pedal feels spongy">🛑 Brake Grinding Noise</button>
+            <button class="chip" data-prompt="Toyota Innova engine overheating and coolant leaking near the pulley">🌡️ Innova Coolant Leak</button>
+          </div>
+
+          <!-- Chat Messages Area -->
+          <div class="chat-messages" id="chatMessages">
+            <div class="message-bubble bot-message intro-message">
+              <div class="bubble-header">
+                <span class="sender-name">AutoSpare AI</span>
+                <span class="time">Just now</span>
+              </div>
+              <p>👋 Hello! I am your AI vehicle diagnostic specialist and spare parts assistant.</p>
+              <p>Describe what issue you are experiencing with your vehicle (two-wheeler or car), or upload a photo of a broken part. I will identify the root causes, recommend matching spare parts from our stock, and find repair tutorial videos for you!</p>
+              <div class="capabilities-tags">
+                <span class="cap-tag">⚡ Multi-lingual (English, Hinglish, Tamil, etc.)</span>
+                <span class="cap-tag">🔍 Live Parts Matching</span>
+                <span class="cap-tag">🎥 YouTube Tutorials</span>
+                <span class="cap-tag">📸 Photo Part ID</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Preview Area -->
+          <div class="image-preview-container" id="imagePreviewContainer" style="display: none;">
+            <div class="preview-card">
+              <img id="imagePreview" alt="Part preview">
+              <div class="preview-info">
+                <span id="previewFilename">part_photo.jpg</span>
+                <button type="button" id="btnRemoveImage" class="btn-icon-danger" title="Remove image">×</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Input Bar -->
+          <form class="chat-input-bar" id="chatForm">
+            <label class="btn-attach" for="fileInput" title="Upload photo of broken part">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            </label>
+            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+
+            <textarea id="messageInput" placeholder="Describe fault symptoms (e.g. 'Activa pickup low and juddering', 'brakes making grinding noise')..." rows="1" required></textarea>
+
+            <button type="submit" class="btn-send" id="btnSend">
+              <span class="send-text">Diagnose</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Diagnostic Breakdown & Parts/Videos Inspector -->
+        <div class="diagnosis-panel card" id="diagnosisPanel">
+          <div class="panel-header">
+            <h3>Diagnostic Intelligence</h3>
+            <span class="badge badge-idle" id="diagStatusBadge">Awaiting Input</span>
+          </div>
+
+          <div class="panel-body" id="diagnosisContent">
+            <div class="empty-state">
+              <div class="empty-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </div>
+              <h4>No Active Diagnosis Yet</h4>
+              <p>Type a fault description or click any quick-test prompt on the left to see the instant AI diagnosis, root causes, matching parts, and YouTube repair videos here.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- TAB 2: SPARE PARTS CATALOGUE                              -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="tab-pane" id="tab-catalog">
+      <div class="catalog-section card">
+        <div class="catalog-header">
+          <div>
+            <h2>Spare Parts Catalogue</h2>
+            <p class="subtitle">Live inventory synchronized from your Neon PostgreSQL database</p>
+          </div>
+          <div class="catalog-stats">
+            <span class="stat-pill"><strong id="totalPartsCount">0</strong> Parts Registered</span>
+            <span class="stat-pill in-stock-pill">In Stock & Verified</span>
+          </div>
+        </div>
+
+        <!-- Filter & Search Bar -->
+        <div class="catalog-toolbar">
+          <div class="toolbar-top-row" style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+            <div class="search-box" style="flex: 1; min-width: 280px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="catalogSearch" placeholder="Describe symptoms or search part (e.g. 'scooter belt slipping', 'clicking sound battery dead')...">
+            </div>
+            <div class="search-mode-group" style="display: flex; gap: 6px; background: rgba(255,255,255,0.04); padding: 4px; border-radius: 8px; border: 1px solid var(--border-subtle);">
+              <button type="button" class="filter-btn active" id="btnModeSbert" style="font-size: 0.78rem; padding: 6px 12px; border-radius: 6px;">⚡ SBERT Semantic</button>
+              <button type="button" class="filter-btn" id="btnModeKeyword" style="font-size: 0.78rem; padding: 6px 12px; border-radius: 6px;">Keyword / OEM</button>
+            </div>
+          </div>
+          <div class="category-filters" id="categoryFilters">
+            <button class="filter-btn active" data-category="all">All</button>
+          </div>
+        </div>
+
+        <!-- Parts Grid -->
+        <div class="parts-grid" id="partsGrid">
+          <div class="loading-spinner">Loading catalogue...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- TAB 3: WEBHOOK & INTEGRATIONS HUB                         -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="tab-pane" id="tab-webhook">
+      <div class="webhook-hub">
+        
+        <!-- Architecture Diagram Card -->
+        <div class="card hub-card">
+          <h3>⚡ System Architecture & Pipeline</h3>
+          <p class="subtitle">How WhatsApp Cloud API messages flow through the AI engine</p>
+          <div class="pipeline-flow">
+            <div class="flow-step">
+              <div class="flow-icon wa-icon">💬</div>
+              <strong>WhatsApp User</strong>
+              <span>Customer asks for help</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-icon api-icon">⚡</div>
+              <strong>FastAPI Webhook</strong>
+              <span>POST <code>/webhook</code></span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-icon ai-icon">🤖</div>
+              <strong>Gemini 3.5 AI</strong>
+              <span>Multilingual Diagnosis</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-icon db-icon">🗄️</div>
+              <strong>Neon PostgreSQL</strong>
+              <span>Parts & Price Match</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-icon yt-icon">🎥</div>
+              <strong>YouTube API v3</strong>
+              <span>Tutorial Videos</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Webhook Configuration & Testing -->
+        <div class="hub-grid">
+          <div class="card hub-config">
+            <h3>🔗 Webhook Configuration</h3>
+            <p class="subtitle">Use these details in the Meta for Developers Console</p>
+            
+            <div class="config-table">
+              <div class="config-row">
+                <span class="label">Local Endpoint:</span>
+                <code>http://localhost:8000/webhook</code>
+              </div>
+              <div class="config-row">
+                <span class="label">Verify Token:</span>
+                <code id="displayVerifyToken">my_verify_token</code>
+              </div>
+              <div class="config-row">
+                <span class="label">Meta API Version:</span>
+                <code>v19.0</code>
+              </div>
+              <div class="config-row">
+                <span class="label">Connected Database:</span>
+                <code>Neon Serverless PostgreSQL</code>
+              </div>
+            </div>
+
+            <div class="ngrok-box">
+              <h4>Expose to Meta with ngrok:</h4>
+              <p>Meta requires a public HTTPS URL. Run this in your terminal:</p>
+              <pre><code>ngrok http 8000</code></pre>
+              <p>Then copy the generated <code>https://xxxx.ngrok-free.app/webhook</code> into Meta's WhatsApp Webhook settings.</p>
+            </div>
+          </div>
+
+          <!-- Webhook Simulator Card -->
+          <div class="card hub-tester">
+            <h3>🧪 WhatsApp Webhook Simulator</h3>
+            <p class="subtitle">Send a test webhook event directly to <code>/webhook</code> to verify end-to-end processing</p>
+
+            <div class="simulator-form">
+              <div class="form-group">
+                <label>From Phone Number:</label>
+                <input type="text" id="simPhone" value="+919876543210" class="select-input">
+              </div>
+              <div class="form-group">
+                <label>Test Message:</label>
+                <textarea id="simText" rows="2" class="select-input">My bike engine is overheating and making knocking sounds</textarea>
+              </div>
+              <button class="btn-primary" id="btnSendWebhookSim">
+                Simulate WhatsApp Incoming Webhook
+              </button>
+              <div id="simResult" class="sim-result-box" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
